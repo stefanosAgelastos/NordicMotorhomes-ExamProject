@@ -24,13 +24,6 @@ public class Staff {
         this.staff.add( new Mechanic(4, "mechanic", 1234));
     }
 
-    public List getStaff() {
-        return staff;
-    }
-
-    public void setStaff(List staff) {
-        this.staff = staff;
-    }
 
     public Employee signIn(String username, int password){
         Iterator iterator= staff.iterator();

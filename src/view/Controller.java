@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
-
+    Staff staff= new Staff();
     Employee actor;
     @FXML
     Button signInButton;
@@ -26,11 +26,13 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Staff staff= new Staff();
 
     }
 
-    public Employee signIn(Event event){
-                actor=staff.
+    public void signIn(Event event){
+        String username = signInTextField.getText();
+        int password = Integer.parseInt(signInPasswordField.getText());
+        actor=staff.signIn(username, password);
+        System.out.println(actor.toString());
     }
 }

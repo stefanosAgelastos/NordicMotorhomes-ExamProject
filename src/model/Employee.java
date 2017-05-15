@@ -5,4 +5,5 @@ package model;
  */
 public interface Employee {
     public boolean identify(String username, int password);
+    public String toString();
 }
