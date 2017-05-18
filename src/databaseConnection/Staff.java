@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class Staff {
 
+    //this is a comment i just added from my computer. stefanos
+
     List<Employee> staff= new ArrayList();
 
     //TODO this list should be loaded from the database, this is a temporary testing constructor
