@@ -9,7 +9,10 @@ public class SalesAssistant implements Employee {
     private int password;
     private int id;
 
+    //this is a Constructor, whenever you instantiate a SalesAssistant object
+    //you can use this one by passing these three parameters (int id, String username, int password)
     public SalesAssistant(int id, String username, int password) {
+
         this.id=id;
         this.username=username;
         this.password=password;
@@ -18,7 +21,7 @@ public class SalesAssistant implements Employee {
 
     @Override
     public boolean identify(String username, int password) {
-        if(username==this.username&&password==this.password){
+        if(username.equals(this.username) &&password==this.password){
             return true;
         }
         return false;

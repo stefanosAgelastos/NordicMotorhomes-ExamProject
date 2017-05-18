@@ -17,7 +17,7 @@ public class BookKeeper implements Employee {
 
     @Override
     public boolean identify(String username, int password) {
-        if(username==this.username&&password==this.password){
+        if(username.equals(this.username) &&password==this.password){
             return true;
         }
         return false;

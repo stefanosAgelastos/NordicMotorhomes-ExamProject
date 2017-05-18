@@ -9,12 +9,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Employee;
 
-import java.beans.EventHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
-    Staff staff= new Staff();
+    Staff staff;
     Employee actor;
     @FXML
     Button signInButton;
@@ -26,13 +25,15 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        staff= new Staff();
     }
 
-    public void signIn(Event event){
+    public void signIn(Event event) {
         String username = signInTextField.getText();
         int password = Integer.parseInt(signInPasswordField.getText());
-        actor=staff.signIn(username, password);
-        System.out.println(actor.toString());
+        actor = staff.signIn(username, password);
+        if (staff != null) {
+            System.out.println(actor.toString());
+        }
     }
 }

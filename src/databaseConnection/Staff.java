@@ -1,12 +1,8 @@
 package databaseConnection;
 
-import model.Employee;
-import model.Mechanic;
-import model.Owner;
-import model.SalesAssistant;
+import model.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,16 +18,14 @@ public class Staff {
         this.staff.add( new Owner(2,"owner", 1234));
         this.staff.add( new SalesAssistant(3,"salesperson2",1234));
         this.staff.add( new Mechanic(4, "mechanic", 1234));
+        this.staff.add( new BookKeeper(5,"bookkeeper",1234));
     }
 
 
-    public Employee signIn(String username, int password){
-        Iterator iterator= staff.iterator();
-        while(iterator.hasNext()){
-            Employee employeeToCheck= (Employee) iterator.next();
-            if(employeeToCheck.identify(username, password)){
-                return employeeToCheck;
-            }
+    public Employee signIn(String username, int password) {
+        for(Employee e:staff){
+            if(e.identify(username, password))
+                return e;
         }
         return null;
     }
