@@ -32,8 +32,11 @@ public class Fleet {
      * in case you are still in doubt call 0045 71587288
     */
     private Fleet(){
+        //make a DBConnector instance
         DBConnector db = new DBConnector();
         try {
+            //we make a query as we want to get data from the database
+            //the answer from the database comes in the form of a ResultSet object.
             ResultSet result = db.makeQuery("SELECT * FROM motorhome");
             while(result.next()){
                 Motorhome toAdd= new Motorhome(result.getString("brand"),result.getDouble("price"),

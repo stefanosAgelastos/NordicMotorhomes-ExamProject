@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/Motorhome.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JavaFxApplication.iml" afterPath="$PROJECT_DIR$/JavaFxApplication.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/Staff.java" afterPath="$PROJECT_DIR$/src/databaseConnection/Staff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" afterPath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Motorhome.java" afterPath="$PROJECT_DIR$/src/model/Motorhome.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fleet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fleet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/databaseConnection/Fleet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="1125">
+              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,12 +124,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Motorhome.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Motorhome.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Motorhome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="73" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="73" />
-              <folding />
+            <state relative-caret-position="825">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding>
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="e#868#869#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
+                <element signature="e#941#942#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#1052#1053#0" expanded="true" />
+                <element signature="e#1080#1081#0" expanded="true" />
+                <element signature="e#1114#1115#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+                <element signature="e#1204#1205#0" expanded="true" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1263#1264#0" expanded="true" />
+                <element signature="e#1288#1289#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -215,9 +224,9 @@
         <option value="$PROJECT_DIR$/src/databaseConnection/Staff.java" />
         <option value="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/model/MotorHome.java" />
-        <option value="$PROJECT_DIR$/src/model/Motorhome.java" />
         <option value="dbtable:/d7326ace/fbd71264-5a11-41bf-9b55-8bd049ad8059/nordicmotorhomes.motorhome" />
         <option value="$PROJECT_DIR$/src/databaseConnection/Fleet.java" />
+        <option value="$PROJECT_DIR$/src/model/Motorhome.java" />
       </list>
     </option>
   </component>
@@ -798,7 +807,7 @@
       <workItem from="1494598263780" duration="6648000" />
       <workItem from="1494842940090" duration="5761000" />
       <workItem from="1495143861964" duration="624000" />
-      <workItem from="1495145971476" duration="6124000" />
+      <workItem from="1495145971476" duration="7661000" />
     </task>
     <task id="LOCAL-00001" summary="just a testing commit">
       <created>1495146077844</created>
@@ -807,11 +816,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495146077844</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="connected fleet to the database">
+      <created>1495152733974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495152733974</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20459000" />
+    <option name="totallyTimeSpent" value="21996000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2315" y="-72" width="2326" height="1272" extended-state="6" />
@@ -861,7 +877,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just a testing commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="just a testing commit" />
+    <MESSAGE value="connected fleet to the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="connected fleet to the database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1306,20 +1323,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Motorhome.java">
+    <entry file="file://$PROJECT_DIR$/src/databaseConnection/Fleet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="73" lean-forward="false" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="73" />
-          <folding />
+        <state relative-caret-position="1125">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/databaseConnection/Fleet.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Motorhome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="825">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+            <element signature="e#1204#1205#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#1288#1289#0" expanded="true" />
           </folding>
         </state>
       </provider>
