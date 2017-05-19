@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class Staff {
 
-    //this is a comment i just added from my computer. stefanos
 
     List<Employee> staff= new ArrayList();
 
