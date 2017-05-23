@@ -1,5 +1,7 @@
 package model;
 
+import databaseConnection.DBConnector;
+import databaseConnection.Fleet;
 import javafx.beans.property.*;
 
 /**
@@ -12,18 +14,33 @@ public class Motorhome {
     private IntegerProperty nbrPersons = new SimpleIntegerProperty(this, "nbrPersons",0);
     private int id;
 
+    /**
+     * this is the constructor
+     */
     public Motorhome(String brand, double price, int nbrPersons) {
         this.brand.setValue(brand);
         this.price.setValue(price);
         this.nbrPersons.setValue(nbrPersons);
+        setListeners();
     }
 
+    /**
+     * this is the constructor
+     */
     public Motorhome(String brand, double price, int nbrPersons, int id) {
         this.brand.setValue(brand);
         this.price.setValue(price);
         this.nbrPersons.setValue(nbrPersons);
         this.id = id;
+        setListeners();
     }
+    /**
+     * this is the generic constructor
+     */
+    public Motorhome() {
+    setListeners();
+    }
+
 
     public String getBrand() {
         return brand.get();
@@ -51,5 +68,42 @@ public class Motorhome {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     *this method should be called when a new instance (a new motorhome) is created.
+     *in other words you should call this method at the last line of any constructor we make for this class.
+     *EXPLANATION: this method adds "listeners" in every field of the motorhome,
+     *this means that every time the state (the data, like the price or the model, or the capacity) of a motorhome changes
+     *then the listeners "hear" that change and RUN a method.
+     *ADVANCED: the method that runs when the listeners "hear" a change is written as a lambda expression.
+     * more to be explained on comments inside the method
+     */
+    private void setListeners(){
+        //first we take the property object that wraps the brand.
+        //properties are objects that you can add listeners to.
+        //check this page:
+        brand.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    Fleet.getInstance().updateMotorhome(this, "brand", newValue);
+        });
+        price.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    String price = Double.toString(newValue.doubleValue());
+                    Fleet.getInstance().updateMotorhome(this, "price", price);
+                });
+        nbrPersons.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    String capacity = Integer.toString(newValue.intValue());
+                    Fleet.getInstance().updateMotorhome(this, "capacity", capacity);
+                });
+
     }
 }

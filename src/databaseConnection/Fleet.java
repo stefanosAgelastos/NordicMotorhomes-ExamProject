@@ -29,7 +29,7 @@ public class Fleet {
     *this is a private constructor, the whole idea of the singleton is based on this private constructor:
     *the constructor can be called only be the ourInstance field, and its called only once per runtime.
     * This constructor loads all the motorhomes from the database to the Observable list TheFleet.
-     * in case you are still in doubt call 0045 71587288
+     *in case you are still in doubt call 0045 71587288
     */
     private Fleet(){
         //make a DBConnector instance
@@ -47,5 +47,16 @@ public class Fleet {
             e.printStackTrace();
         }
         db.closeConnection();
+    }
+
+
+    public void updateMotorhome(Motorhome toUpdate, String column, String newValue){
+        DBConnector db = new DBConnector();
+        try {
+            db.makeUpdate("UPDATE motorhome SET "+column+"='"+newValue+"' WHERE id="+toUpdate.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //TODO handle it properly
+        }
     }
 }
