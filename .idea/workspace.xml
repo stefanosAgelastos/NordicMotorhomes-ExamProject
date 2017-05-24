@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" afterPath="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" afterPath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/Staff.java" afterPath="$PROJECT_DIR$/src/databaseConnection/Staff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/BookkeeperController.java" afterPath="$PROJECT_DIR$/src/view/BookkeeperController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/bookkeeper.fxml" afterPath="$PROJECT_DIR$/src/view/bookkeeper.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/view/BookkeeperController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="398">
-              <caret line="99" column="34" lean-forward="true" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
+              <caret line="99" column="34" lean-forward="false" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -751,7 +746,7 @@
       <workItem from="1495145971476" duration="11353000" />
       <workItem from="1495541029977" duration="6766000" />
       <workItem from="1495551045533" duration="1778000" />
-      <workItem from="1495626500369" duration="4536000" />
+      <workItem from="1495626500369" duration="4629000" />
     </task>
     <task id="LOCAL-00001" summary="just a testing commit">
       <created>1495146077844</created>
@@ -788,11 +783,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495631044340</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="READ for customers, bookkeeper view. compiling error fixed">
+      <created>1495633647444</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1495633647444</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38768000" />
+    <option name="totallyTimeSpent" value="38861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1934" height="1056" extended-state="0" />
@@ -846,7 +848,8 @@
     <MESSAGE value="fieds of motorhome wrapped in javafx properties" />
     <MESSAGE value="now we can update the motorhomes with listeners" />
     <MESSAGE value="bookkeeper view added. next is READ of costumers" />
-    <option name="LAST_COMMIT_MESSAGE" value="bookkeeper view added. next is READ of costumers" />
+    <MESSAGE value="READ for customers, bookkeeper view. compiling error fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="READ for customers, bookkeeper view. compiling error fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1182,7 +1185,7 @@
         <state relative-caret-position="625">
           <caret line="72" column="31" lean-forward="false" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
           <folding>
-            <element signature="e#1670#1671#0" expanded="true" />
+            <element signature="e#1670#1671#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1257,7 +1260,7 @@
         <state relative-caret-position="292">
           <caret line="55" column="11" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1293,7 +1296,7 @@
     <entry file="file://$PROJECT_DIR$/src/view/BookkeeperController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
-          <caret line="99" column="34" lean-forward="true" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
+          <caret line="99" column="34" lean-forward="false" selection-start-line="99" selection-start-column="34" selection-end-line="99" selection-end-column="34" />
           <folding />
         </state>
       </provider>
