@@ -1,5 +1,8 @@
 package databaseConnection;
 
+import javafx.collections.ObservableList;
+import model.Motorhome;
+
 import java.sql.*;
 
 /**
@@ -76,7 +79,7 @@ public class DBConnector {
      */
     private Connection getConnection(){
         String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "foosball";
+        String dbName = "nordicmotorhomes";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
         String password = "";
@@ -97,6 +100,37 @@ public class DBConnector {
         return conn;
     }
 
+    //TODO move this to the Fleet
+    public boolean addMotorhome(Fleet fleet, String brand, int capacity, double price) {
+        int res = 0;
+        try {
+            ResultSet getId=makeQuery("select max(id) from motorhome");
+            getId.next();
+            int id=getId.getInt(1)+1;
+            System.out.println(id);
+            Motorhome newMotorhome= new Motorhome(brand,price,capacity);
+            newMotorhome.setId(id);
+            res = makeUpdate("INSERT INTO motorhome (id, capacity, price, brand) VALUES ('"+id+"','"+capacity+"','"+price+"','"+brand+"')");
+            ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
+            if(res==1)motorhomeList.add(newMotorhome);
+        } catch (Exception e ) {
+            e.printStackTrace();
+        }
+        return res==1;
+    }
+    //TODO move this to the Fleet also
+    public boolean deleteMotorhome(Fleet fleet, Motorhome byeMotorhome) {
+        try {
+            boolean flag= makeUpdate("DELETE FROM motorhome WHERE ID="+byeMotorhome.getId())==1;
+            ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
+            if(flag) motorhomeList.remove(byeMotorhome);
+            return flag;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        closeConnection();
+        return false;
+    }
 
 
 }

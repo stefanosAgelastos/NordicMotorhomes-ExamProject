@@ -1,5 +1,6 @@
 package view;
 
+import databaseConnection.CustomerList;
 import databaseConnection.DBConnector;
 import databaseConnection.Fleet;
 import databaseConnection.Staff;
@@ -13,11 +14,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import model.Customer;
 import model.Motorhome;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
@@ -28,6 +31,7 @@ public class BookkeeperController implements Initializable {
     private Fleet fleet = Fleet.getInstance();
     ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
     private DBConnector db = new DBConnector();
+    private ObservableList<Customer> customerList = CustomerList.getInstance().getTheCustomerList();
 
     @FXML
     TableView<Motorhome> motorhomesTable;
@@ -39,6 +43,14 @@ public class BookkeeperController implements Initializable {
     TableColumn<Motorhome, Integer> nbrPersons;
     @FXML
     TableColumn<Motorhome, Double> motorhomePrice;
+    @FXML
+    TableView<Customer> customersTable;
+    @FXML
+    TableColumn<Customer, Integer> customerId, customerTitle;
+    @FXML
+    TableColumn<Customer, String> customerName, customerEmail, customerTel;
+    @FXML
+    TableColumn<Customer, LocalDate> costumerDoB;
 
     public Button motorhomeRemoveButton;
     public TextField newBrand;
@@ -67,12 +79,27 @@ public class BookkeeperController implements Initializable {
         });
     }
 
+    public void initializeCustomerTable() {
+        //initializes players tab
+
+        customersTable.setEditable(true);
+        customerId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        customerTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        customerName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        customerEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        customerTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
+        costumerDoB.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        customersTable.setItems(customerList);
+
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Staff staff = new Staff();
         initializeMotorhomeTable();
-
+        initializeCustomerTable();
     }
 
     @FXML

@@ -30,4 +30,8 @@ public class Staff {
         }
         return null;
     }
+
+    public List<Employee> getStaff() {
+        return staff;
+    }
 }

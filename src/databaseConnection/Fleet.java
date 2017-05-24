@@ -59,4 +59,8 @@ public class Fleet {
             //TODO handle it properly
         }
     }
+
+    public ObservableList<Motorhome> getTheFleetList() {
+        return theFleetList;
+    }
 }
