@@ -1,9 +1,6 @@
 package view;
 
-import databaseConnection.CustomerList;
-import databaseConnection.DBConnector;
-import databaseConnection.Fleet;
-import databaseConnection.Staff;
+import databaseConnection.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.IntegerStringConverter;
+import model.Booking;
 import model.Customer;
 import model.Motorhome;
 
@@ -29,9 +29,26 @@ import java.util.ResourceBundle;
 public class BookkeeperController implements Initializable {
 
     private Fleet fleet = Fleet.getInstance();
-    ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
+    private ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
     private DBConnector db = new DBConnector();
-    private ObservableList<Customer> customerList = CustomerList.getInstance().getTheCustomerList();
+    private ObservableList<Customer> customerList = Customers.getInstance().getTheCustomerList();
+    private ObservableList<Booking> bookingList = Bookings.getInstance().getTheBookingList();
+
+    @FXML
+    TableView<Booking> BookingsTable;
+    @FXML
+    TableColumn<Booking, Integer> bookingId;
+    @FXML
+    TableColumn<Booking, LocalDate> bookingStartDate, bookingEndDate;
+    @FXML
+    TableColumn<Booking, Double> bookingDistance1, bookingDistance2;
+    @FXML
+    TableColumn<Booking, Boolean> bookingExtra1, bookingExtra2, bookingExtra3, bookingExtra4;
+    @FXML
+    TableColumn<Booking, String> bookingStatus;
+
+
+
 
     @FXML
     TableView<Motorhome> motorhomesTable;
@@ -46,9 +63,10 @@ public class BookkeeperController implements Initializable {
     @FXML
     TableView<Customer> customersTable;
     @FXML
-    TableColumn<Customer, Integer> customerId, customerTitle;
+    TableColumn<Customer, Integer> customerId, customerTitle, customerTel;
     @FXML
-    TableColumn<Customer, String> customerName, customerEmail, customerTel;
+    TableColumn<Customer, String> customerName, customerEmail;
+
     @FXML
     TableColumn<Customer, LocalDate> costumerDoB;
 
@@ -58,17 +76,17 @@ public class BookkeeperController implements Initializable {
     public TextField newNbrPersons;
     public Button motorhomeAddButton;
 
-
     public void initializeMotorhomeTable() {
         //initializes players tab
 
-        System.out.println(motorhomeList.get(0).getNbrPersons());
         motorhomesTable.setEditable(true);
         nbrPersons.setCellValueFactory(new PropertyValueFactory<>("nbrPersons"));
+        nbrPersons.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         motorhomeId.setCellValueFactory(new PropertyValueFactory<>("id"));
         motorhomeBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
         motorhomeBrand.setCellFactory(TextFieldTableCell.forTableColumn());
         motorhomePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        motorhomePrice.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         motorhomesTable.setItems(motorhomeList);
         //disables the delete button when there is nothing selected
         motorhomesTable.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
@@ -93,13 +111,29 @@ public class BookkeeperController implements Initializable {
 
     }
 
+    public void initializeBookingTable() {
+
+        bookingId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        bookingStartDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        bookingEndDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        bookingDistance1.setCellValueFactory(new PropertyValueFactory<>("distance1"));
+        bookingDistance2.setCellValueFactory(new PropertyValueFactory<>("distance2"));
+        bookingExtra1.setCellValueFactory(new PropertyValueFactory<>("extra1"));
+        bookingExtra2.setCellValueFactory(new PropertyValueFactory<>("extra2"));
+        bookingExtra3.setCellValueFactory(new PropertyValueFactory<>("extra3"));
+        bookingExtra4.setCellValueFactory(new PropertyValueFactory<>("extra4"));
+        bookingStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        BookingsTable.setItems(bookingList);
+
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Staff staff = new Staff();
         initializeMotorhomeTable();
         initializeCustomerTable();
+        initializeBookingTable();
+
     }
 
     @FXML

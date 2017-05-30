@@ -3,6 +3,12 @@ package model;
 import databaseConnection.DBConnector;
 import databaseConnection.Fleet;
 import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by ADMIN on 19-05-2017.
@@ -12,6 +18,10 @@ public class Motorhome {
     private StringProperty brand = new SimpleStringProperty(this,"brand","unknown");
     private DoubleProperty price= new SimpleDoubleProperty(this, "price",0);
     private IntegerProperty nbrPersons = new SimpleIntegerProperty(this, "nbrPersons",0);
+    private ObservableList<Booking> bookingList = FXCollections.observableArrayList();
+    private String status;
+
+
     private int id;
 
     /**
@@ -38,7 +48,7 @@ public class Motorhome {
      * this is the generic constructor
      */
     public Motorhome() {
-    setListeners();
+        setListeners();
     }
 
 
@@ -74,6 +84,44 @@ public class Motorhome {
         this.id = id;
     }
 
+    public boolean checkAvailability(int capacity, LocalDate startDate, LocalDate endDate) {
+
+
+        if(!checkCapacity(capacity)) {
+            System.out.println("WHAT'S UP2");
+            return false;
+        }
+
+        if(bookingList == null) {
+            return true;
+        }
+
+        for(Booking b : bookingList) {
+
+            if(!b.isWithinRange(startDate,endDate)) {
+                System.out.println("WHAT'S UP3");
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    public void addBookingToMotorhome (Booking b) {
+
+        bookingList.add(b);
+    }
+
+    private boolean checkCapacity(int capacity) {
+        return ((capacity == getNbrPersons()));
+    }
+
+
+
+
+
+
     /**
      *this method should be called when a new instance (a new motorhome) is created.
      *in other words you should call this method at the last line of any constructor we make for this class.
@@ -91,7 +139,7 @@ public class Motorhome {
                 //this is a lambda expression,
                 (v, oldValue, newValue)->{
                     Fleet.getInstance().updateMotorhome(this, "brand", newValue);
-        });
+                });
         price.addListener(
                 //this is a lambda expression,
                 (v, oldValue, newValue)->{
@@ -106,4 +154,29 @@ public class Motorhome {
                 });
 
     }
+
+    /**
+     * this method is called by the TheFleet singleton,
+     * whenever we launch the app, all Motorhomes are loaded from the DB
+     * and constructed by the TheFleet.
+     * Bookings singleton is already constructed,
+     * so by iterating we get a list of
+     *@param bookingsOfThisMotorhome all relevant for this Motorhome bookings.
+     */
+    public void setBookingList(ArrayList<Booking> bookingsOfThisMotorhome) {
+        //here we get an ArrayList but the destination is an ObservableList,
+        //so we pass the ArrayList (which implements the Collection Interface)
+        //to the method addAll() of the ObservableList which can receive a Collection.
+            bookingList.addAll(bookingsOfThisMotorhome);
+
+    }
+
+    /**
+     * to be used later
+     * @param newBooking latest booking to be added to the Motorhome's list of Bookings.
+     */
+    public void addBooking(Booking newBooking){
+        this.bookingList.add(newBooking);
+    }
+
 }

@@ -1,15 +1,18 @@
 package databaseConnection;
 
-import model.*;
+import model.Employee;
+import model.Mechanic;
+import model.Owner;
+import model.SalesAssistant;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by aSeddik on 13-May-17.
  */
 public class Staff {
-
 
     List<Employee> staff= new ArrayList();
 
@@ -19,19 +22,24 @@ public class Staff {
         this.staff.add( new Owner(2,"owner", 1234));
         this.staff.add( new SalesAssistant(3,"salesperson2",1234));
         this.staff.add( new Mechanic(4, "mechanic", 1234));
-        this.staff.add( new BookKeeper(5,"bookkeeper",1234));
     }
 
+    public List getStaff() {
+        return staff;
+    }
 
-    public Employee signIn(String username, int password) {
-        for(Employee e:staff){
-            if(e.identify(username, password))
-                return e;
+    public void setStaff(List staff) {
+        this.staff = staff;
+    }
+
+    public Employee signIn(String username, int password){
+        Iterator iterator= staff.iterator();
+        while(iterator.hasNext()){
+            Employee employeeToCheck= (Employee) iterator.next();
+            if(employeeToCheck.identify(username, password)){
+                return employeeToCheck;
+            }
         }
         return null;
-    }
-
-    public List<Employee> getStaff() {
-        return staff;
     }
 }

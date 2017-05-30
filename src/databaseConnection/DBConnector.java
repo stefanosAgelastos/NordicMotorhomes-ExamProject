@@ -1,9 +1,14 @@
 package databaseConnection;
 
 import javafx.collections.ObservableList;
+import model.Booking;
+import model.Customer;
 import model.Motorhome;
+import model.Payment;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * This class can be used whenever we need a connection to the Database
@@ -78,11 +83,11 @@ public class DBConnector {
      * have a look at this for more info : https://docs.oracle.com/javase/7/docs/api/java/sql/Connection.html
      */
     private Connection getConnection(){
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://volatilemercurycopenhagen.crkv1yx1tdak.us-east-1.rds.amazonaws.com:3306/";
         String dbName = "nordicmotorhomes";
         String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "";
+        String userName = "agelastostefanos";
+        String password = "stef1987";
         try {
             Class.forName(driver).newInstance();
         } catch (InstantiationException e) {
@@ -94,23 +99,23 @@ public class DBConnector {
         }
         try {
             conn = DriverManager.getConnection(url+dbName,userName,password);
+            System.out.println("We got the connection"); //TODO remove, this was used for debugging
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return conn;
     }
 
-    //TODO move this to the Fleet
     public boolean addMotorhome(Fleet fleet, String brand, int capacity, double price) {
         int res = 0;
         try {
-            ResultSet getId=makeQuery("select max(id) from motorhome");
+            ResultSet getId=makeQuery("select max(motorhomeid) from motorhome");
             getId.next();
             int id=getId.getInt(1)+1;
             System.out.println(id);
             Motorhome newMotorhome= new Motorhome(brand,price,capacity);
             newMotorhome.setId(id);
-            res = makeUpdate("INSERT INTO motorhome (id, capacity, price, brand) VALUES ('"+id+"','"+capacity+"','"+price+"','"+brand+"')");
+            res = makeUpdate("INSERT INTO motorhome (motorhomeid, capacity, price, brand) VALUES ('"+id+"','"+capacity+"','"+price+"','"+brand+"')");
             ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
             if(res==1)motorhomeList.add(newMotorhome);
         } catch (Exception e ) {
@@ -118,10 +123,10 @@ public class DBConnector {
         }
         return res==1;
     }
-    //TODO move this to the Fleet also
+
     public boolean deleteMotorhome(Fleet fleet, Motorhome byeMotorhome) {
         try {
-            boolean flag= makeUpdate("DELETE FROM motorhome WHERE ID="+byeMotorhome.getId())==1;
+            boolean flag= makeUpdate("DELETE FROM motorhome WHERE motorhomeid="+byeMotorhome.getId())==1;
             ObservableList<Motorhome> motorhomeList = fleet.getTheFleetList();
             if(flag) motorhomeList.remove(byeMotorhome);
             return flag;
@@ -131,6 +136,4 @@ public class DBConnector {
         closeConnection();
         return false;
     }
-
-
 }

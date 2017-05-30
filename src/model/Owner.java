@@ -46,8 +46,4 @@ public class Owner implements Employee {
         }
         return false;
     }
-    public String toString(){
-        return this.username;
-    }
-
 }

@@ -15,7 +15,7 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="nordicmotorhomes@volatilemercurycopenhagen.crkv1yx1tdak.us-east-1.rds.amazonaws.com" uuid="2a7ba0d0-2723-4b22-a758-4126068f8b96">
+    <data-source source="LOCAL" name="nordicmotorhomes@volatilemercurycopenhagen.crkv1yx1tdak.us-east-1.rds.amazonaws.com" uuid="bb5082e3-16ce-4531-ae98-b6a000eddef5">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

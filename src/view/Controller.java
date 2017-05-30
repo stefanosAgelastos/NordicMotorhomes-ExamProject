@@ -1,6 +1,6 @@
 package view;
 
-import databaseConnection.Staff;
+import databaseConnection.*;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -46,7 +46,14 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //here we are going to make a call to all the singleton Lists
+        //the private constructor of each is gonna populate each List from the DB.
         Staff staff= new Staff();
+        Customers.getInstance();
+        Payments.getInstance();
+        Bookings.getInstance();
+        Fleet.getInstance();
+
 
     }
 
@@ -63,7 +70,7 @@ public class Controller implements Initializable{
         } else if(list.get(2).identify(admin, pass)) {
             //SCENE 3
         } else if(list.get(3).identify(admin, pass)) {
-            //SCENE 4
+            SceneManager.getInstance().loadMechanicScene();
         }
         else {
             Alert wrongCredentials = new Alert(Alert.AlertType.ERROR);
@@ -74,34 +81,7 @@ public class Controller implements Initializable{
         }
     }
 
-    @FXML
-    public void btnSearch() throws IOException {
-        SceneManager.getInstance().loadAvailableScene();
-    }
 
-    @FXML
-    public void MotorhomeSelection() throws IOException {
-        SceneManager.getInstance().loadCarDetailsScene();
-    }
-
-    @FXML
-    public void extra1() throws IOException {
-        SceneManager.getInstance().loadCarDetailsScene();
-    }
-    @FXML
-    public void extra2() throws IOException {
-        SceneManager.getInstance().loadCarDetailsScene();
-    }
-    public void extra3() throws IOException {
-        SceneManager.getInstance().loadCarDetailsScene();
-    }
-    public void extra4() throws IOException {
-        SceneManager.getInstance().loadCarDetailsScene();
-    }
-    @FXML
-    public void BtnBookingAction() throws IOException {
-        SceneManager.getInstance().loadCustomerDetailsScene();
-    }
 
     public void btnMale(ActionEvent actionEvent) throws IOException {
     }
@@ -109,15 +89,8 @@ public class Controller implements Initializable{
     public void btnFemale(ActionEvent actionEvent) throws IOException {
     }
 
-    public void BtnNextAction() throws IOException {
-        SceneManager.getInstance().loadBillingDetailsScene();
-    }
 
     public void printSelection(ActionEvent actionEvent) throws IOException {
-    }
-
-    public void BtnNextAction1(ActionEvent actionEvent) throws IOException {
-        SceneManager.getInstance().loadConfirmationDetailsScene();
     }
 
     public void LogOutAction(ActionEvent actionEvent) throws IOException  {
