@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="nordicmotorhomes@localhost" uuid="fbd71264-5a11-41bf-9b55-8bd049ad8059">
+    <data-source source="LOCAL" name="@localhost" uuid="0ba2cbc2-34b9-41e1-8486-244361b97f78">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -15,7 +15,7 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="nordicmotorhomes@volatilemercurycopenhagen.crkv1yx1tdak.us-east-1.rds.amazonaws.com" uuid="bb5082e3-16ce-4531-ae98-b6a000eddef5">
+    <data-source source="LOCAL" name="nordicmotorhomes@volatilemercurycopenhagen.crkv1yx1tdak.us-east-1.rds.amazonaws.com" uuid="11cd444a-a7f6-4ae0-a540-fd92bcb53967">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
