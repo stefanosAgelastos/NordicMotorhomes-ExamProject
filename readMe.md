@@ -18,5 +18,4 @@ A team of four developers is hired to develop an ITS for a young, dynamically gr
 ![System login page](doc/screenshots/bookkeeperpayments.png)
 ### Mechanic view
 ![System login page](doc/screenshots/mechanicbeta.png)
-## Functional requirements
 
